@@ -1,0 +1,1 @@
+cat /mnt/sdcard/tmp0.out > /dev/input/event2 && sleep 0.050 && cat /mnt/sdcard/tmp1.out > /dev/input/event2 && sleep 0.050 && cat /mnt/sdcard/tmp2.out > /dev/input/event2 && sleep 0.050 && cat /mnt/sdcard/tmp3.out > /dev/input/event2 && sleep 0.050 && cat /mnt/sdcard/tmp4.out > /dev/input/event2 && sleep 0.050 && cat /mnt/sdcard/tmp5.out > /dev/input/event2
