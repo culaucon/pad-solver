@@ -25,9 +25,9 @@ using namespace std;
 
 char ORB[6] = {'R', 'G', 'B', 'D', 'L', 'H'};
 
-int dx[8] = {-1, -1, -1, 0, 1, 1, 1, 0};
-int dy[8] = {-1, 0, 1, 1, 1, 0, -1, -1};
-bool diag[8] = {1, 0, 1, 0, 1, 0, 1, 0};
+int dx[8] = {-1, -1, -1, 0, 1, 1, 1, 0}; // x-axis direction
+int dy[8] = {-1, 0, 1, 1, 1, 0, -1, -1}; // y-axis direction
+bool diag[8] = {1, 0, 1, 0, 1, 0, 1, 0}; // if direction is diagonal
 
 bool isPlus[5][6];
 char initBoard[5][6];
@@ -52,6 +52,8 @@ vector<uint16_t> type, code;
 vector<__signed__ int> value;
 
 struct solution sol;
+
+int team;
 
 char temp_files[SOLUTION_MAX_LENGTH][100];
 
@@ -182,10 +184,23 @@ void dispatchEvents() {
 	}
 }
 
+void checkSudo() {
+	if (getuid()) {
+		cout<<"Must be run as root. Exiting..."<<endl;
+		exit(0);
+	}
+}
+
 int main() {
+	checkSudo();
 	takeScreenshot();
 	initImage();
+	cout<<"Analyzing image..."<<endl;
 	processImage();
+	cout<<"Optimizing..."<<endl;
+	team = TEAM_LKALI;
 	optimize();
+	cout<<"Press Enter to dispatch event...";
+	cin.get();
 	dispatchEvents();
 }
