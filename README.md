@@ -1,4 +1,4 @@
-# PAD-solver
+# PAD Solver
 
 This repository contains the automatic orbs-matching feature for Puzzle and Dragons.
 Currently the code has some basic heuristics for different teams, like maximizing combos count for combo Gods, TPA for Green Zhuge Liang, Athena... Other heuristics and be easily added.
