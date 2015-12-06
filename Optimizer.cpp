@@ -121,8 +121,9 @@ struct state {
 	
 	void calcWeight() {
 		weight = num_combos;
+		
 		if (team == TEAM_COMBOS) {
-		} else if (team == TEAM_GZL) {
+		} else if (team == TEAM_GREEN_TPA) {
 			for (int i = 0; i < num_combos; i++)
 				if (combo_num_orbs[i] == 4 && combo_type[i] == 'G') weight += TPA_WEIGHT;
 		} else if (team == TEAM_ATHENA) {
@@ -219,6 +220,20 @@ void optimize() {
 	for (int j = 0; j < v[0].len; j++) cout<<v[0].path[j]<<" ";
 	cout<<endl;
 	
+	cout<<"List combos:"<<endl;
+	string combo_types = COMBO_TYPES;
+	for (int i = 0; i < (int)combo_types.size(); i++) {
+		cout<<combo_types[i]<<": ";
+		vector<int> num_orbs;
+		for (int j = 0; j < v[0].num_combos; j++)
+			if (v[0].combo_type[j] == combo_types[i]) num_orbs.push_back(v[0].combo_num_orbs[j]);
+		sort(num_orbs.begin(), num_orbs.end());
+		for (int j = 0; j + 1 < (int)num_orbs.size(); j++) cout<<num_orbs[j]<<", ";
+		if (num_orbs.size() >= 1) cout<<num_orbs[num_orbs.size() - 1]<<endl;
+		else cout<<endl;
+	}
+	cout<<endl;
+
 	sol.st_x = v[0].st_x;
 	sol.st_y = v[0].st_y;
 	sol.len = v[0].len;
@@ -235,5 +250,14 @@ void optimize() {
 			cout<<s.board[i][j];
 		cout<<endl;
 	}
+	cout<<endl;
+	cout<<"PAD Dawnglare friendly: "<<endl;
+	cout<<"Initial: ";
+	for (int i = 0; i < 5; i++)
+		for (int j = 0; j < 6; j++) cout<<initBoard[i][j];
+	cout<<endl;
+	cout<<"Final: ";
+	for (int i = 0; i < 5; i++)
+		for (int j = 0; j < 6; j++) cout<<s.board[i][j];
 	cout<<endl;
 }

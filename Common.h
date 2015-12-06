@@ -1,7 +1,7 @@
 #include "CImg.h"
 
 #define MAX_NO_SOLUTION 5000
-#define SOLUTION_MAX_LENGTH 80
+#define SOLUTION_MAX_LENGTH 100
 #define ITER 50
 
 #define TPA_WEIGHT 3
@@ -11,10 +11,12 @@
 #define IMG_NAME "screen.png"
 
 #define TEAM_COMBOS 0
-#define TEAM_GZL 1
+#define TEAM_GREEN_TPA 1
 #define TEAM_ATHENA 2
 #define TEAM_LKALI 3
 #define TEAM_YAMATO 4
+
+#define COMBO_TYPES "RGBLDH"
 
 #define S_ALL (S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IWOTH | S_IXOTH)
 

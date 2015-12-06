@@ -197,8 +197,20 @@ int main() {
 	initImage();
 	cout<<"Analyzing image..."<<endl;
 	processImage();
+	
+
+/*	string temp = "DGBDBLBPDLGDRRHLRGHRLRHDGLLRRP";
+	for (int i=0;i<5;i++)
+		for (int j=0;j<6;j++)
+			initBoard[i][j]=temp[i*6+j];
+	
+	for (int i=0;i<5;i++) {
+		for (int j=0;j<6;j++) cout<<initBoard[i][j];
+		cout<<endl;
+	}*/
+	
 	cout<<"Optimizing..."<<endl;
-	team = TEAM_LKALI;
+	team = TEAM_GREEN_TPA;
 	optimize();
 	cout<<"Press Enter to dispatch event...";
 	cin.get();
